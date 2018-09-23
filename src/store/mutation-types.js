@@ -18,3 +18,4 @@ export const SET_TOKEN = 'SET_TOKEN';
 
 //task
 export const INSERT_TASK = "INSERT_TASK";
+export const SET_TASKS = "SET_TASKS";

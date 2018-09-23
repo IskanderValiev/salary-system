@@ -68,7 +68,8 @@
 
     data: () => ({
       name: null,
-      description: null
+      description: null,
+      difficulty: null
     }),
 
     computed: {
@@ -83,6 +84,7 @@
         this.$store.dispatch('createTask', {
           name: this.name,
           description: this.description,
+          difficulty: this.difficulty
         })
           .then((response) => {
             if (response) {

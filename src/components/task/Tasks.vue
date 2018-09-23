@@ -9,20 +9,6 @@
 
       <v-spacer></v-spacer>
 
-      <div class="mr-1 mt-2">
-
-        <v-btn
-          class="ml-4"
-          color="primary"
-          round
-          outline
-          @click="dialog = true"
-        >
-          Добавить задачу
-        </v-btn>
-
-      </div>
-
     </v-layout>
 
     <!-- table begin -->
@@ -55,58 +41,6 @@
 
     </v-flex>
     <!-- table end -->
-
-    <!-- dialog -->
-    <v-dialog v-model="dialog" width="360">
-      <v-card>
-
-        <v-card-title class="headline" v-text="title">
-        </v-card-title>
-
-        <v-divider></v-divider>
-
-        <div class="px-3">
-          <v-text-field
-            v-model="newItem.UsrName"
-            label="Название"
-            required
-          ></v-text-field>
-
-          <v-text-field
-            v-model="newItem.UsrDescription"
-            label="Описание"
-            required
-          ></v-text-field>
-
-          <v-text-field
-            v-model="newItem.UsrDifficulty"
-            label="Сложность"
-            required
-          ></v-text-field>
-        </div>
-
-
-        <v-card-actions>
-          <v-spacer/>
-          <v-btn
-            flat
-            color="error"
-            @click="resetNewItem()"
-          >
-            Отмена
-          </v-btn>
-
-          <v-btn
-            flat
-            color="primary"
-            @click="saveChanges()"
-          >
-          </v-btn>
-        </v-card-actions>
-
-      </v-card>
-    </v-dialog>
-    <!-- dialog -->
   </main-layout>
 </template>
 
@@ -134,14 +68,12 @@
 
     data: () => ({
       title: 'Список невзятых заданий',
-      dialog: false,
+      processCode: 'icl1teamTestService',
       newItem: {
-        Id: null,
         UsrName: null,
         UsrDescription: null,
-        UsrDifficulty: null
+        UsrDifficulty: null,
       },
-      processCode: 'icl1teamTestService',
       processParams: [
         {
           "name": "ProcessSchemaParameter1",
@@ -163,8 +95,8 @@
 
     computed: {
       ...mapState({
-        columns: (state) => state.contacts.columns,
-        items: (state) => state.contacts.contacts
+        columns: (state) => state.task.columns,
+        items: (state) => state.task.tasks
       }),
       headers: function () {
         let result = [];
@@ -175,29 +107,15 @@
             sortable: false,
           })
         });
-        result.push({
-          text: 'Actions',
-          align: 'left',
-          sortable: false,
-        });
         return result
       }
     },
 
     beforeCreate() {
-      this.$store.dispatch('loadContacts');
+      this.$store.dispatch('getTasks');
     },
 
     methods: {
-      saveChanges: function () {
-        this.$store.dispatch('createTask', this.newItem).then(() => {
-          this.resetNewItem();
-        });
-      },
-      resetNewItem: function () {
-        Object.keys(this.newItem).forEach((key) => this.newItem[key] = null);
-        this.dialog = false;
-      },
     },
   }
 </script>
