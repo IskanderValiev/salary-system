@@ -69,7 +69,7 @@ export default new Router({
       component: UserRegistration
     },
     {
-      path: '/tasks/add',
+      path: '/addTask',
       name: 'AddTask',
       component: AddTask
     },
@@ -77,6 +77,11 @@ export default new Router({
       path: '/tasks',
       name: 'Tasks',
       component: Tasks
+    },
+    {
+      path: '/choosenTasks',
+      name: 'ChoosenTasks',
+      component: ChoosenTasks
     }
   ]
 })

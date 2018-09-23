@@ -58,7 +58,60 @@ function getTasks(params) {
   })
 }
 
+function getChoosenTasks(params) {
+  console.log(params);
+  return debug ? getMockData('task') : postRequest('readmultiple', {
+    columnSet: ["*"],
+    objectType: "UsrTask",
+    userId: store.state.user.user.userId,
+    filterConnector: {
+      subFiltersConnection: "And",
+      subFilters:
+        [
+          {
+            fieldName: "UsrUser",
+            comparisonType: "EQUAL",
+            rightType: "CONSTANT",
+            rightValue: store.state.user.user.userId,
+            rightValueType: "String"
+          },
+          {
+            fieldName: "UsrStatus",
+            comparisonType: "EQUAL",
+            rightType: "CONSTANT",
+            rightValue: "IN_PROGRESS",
+            rightValueType: "String"
+          }
+        ]
+    }
+  })
+}
+
+function takeTask(params) {
+  console.log(params);
+  return debug ? getMockData('task') :
+    postRequest('update', {
+    AttributesCollection: [
+      {
+        name: "UsrStatus",
+        value: "IN_PROGRESS",
+        type: "string"
+      },
+      {
+        name: "UsrUser",
+        value: store.state.user.user.userId,
+        type: "string"
+      }
+    ],
+    objectType: "UsrTask",
+    objectId: params.id,
+    userId: store.state.user.user.userId
+  });
+}
+
 export {
   getTasks,
-  createTask
+  createTask,
+  takeTask,
+  getChoosenTasks
 }

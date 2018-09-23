@@ -71,18 +71,23 @@
         {
           icon: 'help',
           title: 'Помощь',
-          url: '/documentation/intro'
+          url: '/documentation'
         },
         {
           icon: 'assignment',
           title: 'Добавить задачу',
-          url: '/tasks/add'
+          url: '/addTask'
         },
         {
           icon: 'assignment',
-          title: 'Задачи',
+          title: 'Свободные задачи',
           url: '/tasks'
-        }
+        },
+        {
+          icon: 'assignment',
+          title: 'Мои задачи',
+          url: '/choosenTasks'
+        },
       ],
     }),
     methods: {

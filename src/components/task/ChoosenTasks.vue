@@ -40,7 +40,7 @@
               class="mr-2"
               @click="takeTask(td.item)"
             >
-              Взять
+              Отметить выполненным
             </v-icon>
           </td>
 
@@ -122,7 +122,7 @@
     },
 
     beforeCreate() {
-      this.$store.dispatch('getTasks');
+      this.$store.dispatch('getChoosenTasks');
     },
 
     methods: {
@@ -130,7 +130,7 @@
         this.$store.dispatch('takeTask', {
           id: item.objectId
         }).then(() => {
-          this.$store.dispatch('getTasks');
+          this.$store.dispatch('getChoosenTasks');
         });
       },
     },

@@ -30,6 +30,15 @@ const actions = {
       .then((response) => {
         commit(SET_TASKS, response.data.resultCollection)
       })
+  },
+  takeTask({commit}, payload) {
+    return ApiTask.takeTask(payload)
+  },
+  getChoosenTasks({commit, rootState}) {
+    ApiTask.getChoosenTasks()
+      .then((response) => {
+        commit(SET_TASKS, response.data.resultCollection)
+      })
   }
 };
 
