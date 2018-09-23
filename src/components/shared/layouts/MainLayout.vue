@@ -87,7 +87,7 @@
           icon: 'assignment',
           title: 'Мои задачи',
           url: '/choosenTasks'
-        },
+        }
       ],
     }),
     methods: {

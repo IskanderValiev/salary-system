@@ -11,6 +11,7 @@ import DocumentationDetail from '@/components/documentation/DocumentationDetail'
 import store from '@/store'
 import AddTask from '@/components/task/AddTask'
 import Tasks from '@/components/task/Tasks'
+import ChoosenTasks from '@/components/task/ChoosenTasks'
 
 Vue.use(Router);
 
@@ -77,7 +78,8 @@ export default new Router({
       path: '/tasks',
       name: 'Tasks',
       component: Tasks
-    },
+    }
+    ,
     {
       path: '/choosenTasks',
       name: 'ChoosenTasks',
