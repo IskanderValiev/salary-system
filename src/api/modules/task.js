@@ -37,7 +37,7 @@ function createTask(params) {
 }
 
 function getTasks(params) {
-  console.log(params);
+  console.log(store.state.user.user.userId);
   return debug ? getMockData('task') : postRequest('readmultiple', {
     columnSet: ["*"],
     objectType: "UsrTask",
@@ -109,9 +109,32 @@ function takeTask(params) {
   });
 }
 
+function makeTaskDone(params) {
+  console.log(store.state.user.user.userId);
+  return debug ? getMockData('task') :
+    postRequest('update', {
+      AttributesCollection: [
+        {
+          name: "UsrStatus",
+          value: "DONE",
+          type: "string"
+        },
+        {
+          name: "UsrUser",
+          value: store.state.user.user.userId,
+          type: "string"
+        }
+      ],
+      objectType: "UsrTask",
+      objectId: params.id,
+      userId: store.state.user.user.userId
+    });
+}
+
 export {
   getTasks,
   createTask,
   takeTask,
-  getChoosenTasks
+  getChoosenTasks,
+  makeTaskDone
 }

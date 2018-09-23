@@ -13,6 +13,7 @@
 
     created: function () {
       this.$store.dispatch('reloadTokenFromCookies');
+      this.$store.dispatch('reloadUser');
     }
   }
 </script>

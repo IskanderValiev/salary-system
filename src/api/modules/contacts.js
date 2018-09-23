@@ -25,6 +25,7 @@ function loadContacts(params) {
 }
 
 function createContact(params) {
+
   return debug ? successPromise :
     postRequest('create',
       {

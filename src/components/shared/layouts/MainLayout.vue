@@ -60,19 +60,9 @@
     name: 'MainLayout',
 
     data: () => ({
-      title: 'СТ-ВЕБКИТ',
+      title: 'Salary system',
       drawer: false,
       aside: [
-        {
-          icon: 'assignment',
-          title: 'Контакты',
-          url: '/contacts'
-        },
-        {
-          icon: 'help',
-          title: 'Помощь',
-          url: '/documentation'
-        },
         {
           icon: 'assignment',
           title: 'Добавить задачу',

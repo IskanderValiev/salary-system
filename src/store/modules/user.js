@@ -28,7 +28,8 @@ const mutations = {
       start: payload.start,
       finish: payload.finish,
       access_token: payload.access_token,
-    }
+    };
+
   },
   [RESET_USER]: (state) => {
     state.user = {
@@ -51,6 +52,7 @@ const actions = {
       if (response.data.hasOwnProperty('access_token')) {
         commit(SET_USER, response.data);
         this.dispatch('saveTokenToCookies', response.data.access_token);
+        this.dispatch('saveUserToLocaleStorage', response.data);
 
         return true;
       }
@@ -63,6 +65,7 @@ const actions = {
         if (response.data.hasOwnProperty('access_token')) {
           commit(SET_USER, response.data);
           this.dispatch('saveTokenToCookies', response.data.access_token);
+          this.dispatch('saveUserToLocaleStorage', response.data);
 
           return true;
         }
@@ -77,8 +80,15 @@ const actions = {
     let token = window.$cookies.get('access_token');
     if (token) commit(SET_TOKEN, token);
   },
+  reloadUser({commit}) {
+    let user = localStorage.getItem('user');
+    if (user) commit(SET_USER, JSON.parse(user));
+  },
   saveTokenToCookies({commit}, payload) {
     if (payload) window.$cookies.set('access_token', payload, "42d");
+  },
+  saveUserToLocaleStorage({commit},paylod){
+    localStorage.setItem('user',JSON.stringify(paylod));
   },
   openTask() {
     return {success: true}

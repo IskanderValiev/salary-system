@@ -38,7 +38,7 @@
             <v-icon
               small
               class="mr-2"
-              @click="takeTask(td.item)"
+              @click="makeTaskDone(td.item)"
             >
               Отметить выполненным
             </v-icon>
@@ -126,8 +126,8 @@
     },
 
     methods: {
-      takeTask: function (item) {
-        this.$store.dispatch('takeTask', {
+      makeTaskDone: function (item) {
+        this.$store.dispatch('makeTaskDone', {
           id: item.objectId
         }).then(() => {
           this.$store.dispatch('getChoosenTasks');

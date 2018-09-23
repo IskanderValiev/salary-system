@@ -34,6 +34,10 @@ const actions = {
   takeTask({commit}, payload) {
     return ApiTask.takeTask(payload)
   },
+  makeTaskDone({commit}, payload) {
+    return ApiTask.makeTaskDone(payload)
+  }
+  ,
   getChoosenTasks({commit, rootState}) {
     ApiTask.getChoosenTasks()
       .then((response) => {
