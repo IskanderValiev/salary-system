@@ -27,32 +27,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/contacts'
-    },
-    {
-      path: '/contacts',
-      name: 'Contacts',
-      component: Contacts,
-      beforeEnter: checkToken
-    },
-    {
-      path: '/documentation',
-      name: 'Documentation',
-      component: Documentation,
-      children: [
-        {
-          path: '/documentation/intro',
-          name: 'DocumentationIntro',
-          // component: DocumentationIntro
-          redirect: '/documentation/id=100',
-        },
-        {
-          path: '/documentation/id=:id?',
-          name: 'DocumentationDetail',
-          component: DocumentationDetail,
-          props: true
-        }
-      ]
+      redirect: '/tasks'
     },
     {
       path: '/user',
@@ -78,8 +53,7 @@ export default new Router({
       path: '/tasks',
       name: 'Tasks',
       component: Tasks
-    }
-    ,
+    },
     {
       path: '/choosenTasks',
       name: 'ChoosenTasks',
