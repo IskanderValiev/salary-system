@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import documentation from './modules/documentation'
 import contacts from './modules/contacts'
 import user from './modules/user'
+import task from './modules/task'
 
 import {SET_ALERT, SET_LOADING} from "@/store/mutation-types";
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
   modules: {
     documentation,
     contacts,
-    user
+    user,
+    task
   },
   state: {
     loading: false,

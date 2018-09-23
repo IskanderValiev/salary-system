@@ -8,8 +8,8 @@ function addTask(params) {
     createTask(params)
       .then((response) => {
         createTask({
-          name: response.data.name,
-          description: response.data.description,
+          UsrName: response.data.name,
+          UsrDescription: response.data.description,
         }).then((response) => {
           resolve(response);
         })
@@ -21,7 +21,7 @@ function addTask(params) {
 }
 
 function createTask(params) {
-  return debug ? getMockData('task') : postRequest('registration', params);
+  return debug ? getMockData('task') : postRequest('create', params);
 }
 
 // function signUserIn(params) {

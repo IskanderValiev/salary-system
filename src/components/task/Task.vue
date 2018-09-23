@@ -71,6 +71,7 @@
 
     methods: {
       addTask: function () {
+        console.log(this.$store);
         this.$store.dispatch('createTask', {
           name: this.name,
           description: this.description,
