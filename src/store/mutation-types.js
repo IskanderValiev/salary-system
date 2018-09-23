@@ -17,4 +17,4 @@ export const RESET_USER = 'RESET_USER';
 export const SET_TOKEN = 'SET_TOKEN';
 
 //task
-export const INSER_TASK = "INSERT_TASK";
+export const INSERT_TASK = "INSERT_TASK";
