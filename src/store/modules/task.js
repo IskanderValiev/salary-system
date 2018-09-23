@@ -43,7 +43,7 @@ const actions = {
     return {success: true}
   },
   createTask({commit}, payload) {
-    return ApiTask.addTask();
+    return ApiTask.addTask(payload);
   }
 };
 

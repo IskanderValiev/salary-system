@@ -53,6 +53,7 @@ function getRequest(method = null) {
 
 function postRequest(method = null, payload = {}) {
   store.dispatch('showPreLoader', true);
+  console.log(payload);
 
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + store.state.user.user.access_token;
 
