@@ -54,44 +54,11 @@
   </main-layout>
 </template>
 <script>
-  import {mapState} from 'vuex';
-
   export default {
     name: 'Tasks',
 
     beforeCreate() {
       this.$store.dispatch('getTask');
-    },
-
-    methods: {
-      saveChanges: function () {
-        let action = this.newItem.Id ? 'updateContact' : 'createContact';
-        this.$store.dispatch(action, this.newItem).then(() => {
-          this.resetNewItem();
-        });
-      },
-      resetNewItem: function () {
-        Object.keys(this.newItem).forEach((key) => this.newItem[key] = null);
-        this.dialog = false;
-      },
-      showUpdateDialog: function (item) {
-        item.attributesCollection.forEach((attr) => {
-          if (this.newItem.hasOwnProperty(attr.name)) {
-            this.newItem[attr.name] = attr.value;
-          }
-        });
-        this.dialog = true;
-      },
-      deleteItem: function (item) {
-        confirm('Вы уверены, что хотите удалить этот элемент?') && this.$store.dispatch('deleteContact', item.objectId);
-      },
-      runProcess: function (objectId = null) {
-        this.$store.dispatch('runProcess', {
-          objectId: objectId,
-          processCode: this.processCode,
-          parameters: this.processParams,
-        })
-      }
-    },
+    }
   }
 </script>

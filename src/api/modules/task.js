@@ -2,6 +2,7 @@ import {postRequest} from "@/api/base";
 import {getMockData} from "@/api/mock";
 import store from "@/store"
 import {getRequest} from "../base";
+import {OBJECT_TYPE} from "@/store/modules/task"
 
 const debug = false;
 
@@ -35,8 +36,7 @@ function createTask(params) {
   });
 }
 
-function getAvailableTasks(params) {
-  console.log(params);
+function getAvailableTasks() {
   return debug ? getMockData('task') : getRequest('readmultiple', {
     columnSet: ["*"],
     objectType: "UsrTask",
