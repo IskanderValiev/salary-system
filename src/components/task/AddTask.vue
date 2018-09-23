@@ -1,6 +1,5 @@
 <template>
   <main-layout>
-    <login-layout class="pt-5">
       <v-flex sm6 offset-sm3 xs12>
         <v-card>
           <form
@@ -10,8 +9,7 @@
           >
             <v-card-title primary-title>
               <div>
-                <div class="headline">Add task</div>
-                <span class="grey--text">Add task</span>
+                <div class="headline">Добавить задание</div>
               </div>
             </v-card-title>
 
@@ -22,7 +20,7 @@
                 v-model="name"
                 required
                 type="text"
-                label="name"
+                label="Название"
               >
               </v-text-field>
 
@@ -30,7 +28,7 @@
                 v-model="description"
                 type="text"
                 required
-                label="description"
+                label="Описание"
               >
               </v-text-field>
 
@@ -38,7 +36,7 @@
                 v-model="difficulty"
                 type="number"
                 required
-                label="difficulty"
+                label="Сложность"
               >
               </v-text-field>
             </div>
@@ -53,13 +51,12 @@
                 flat
                 color="primary"
               >
-                Add task
+                Добавить задание
               </v-btn>
             </v-card-actions>
           </form>
         </v-card>
       </v-flex>
-    </login-layout>
   </main-layout>
 </template>
 <script>

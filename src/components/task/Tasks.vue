@@ -77,7 +77,7 @@
     },
 
     data: () => ({
-      title: 'Список невзятых заданий',
+      title: 'Список невыбранных заданий',
       processCode: 'icl1teamTestService',
       newItem: {
         UsrName: null,
