@@ -58,7 +58,7 @@
     name: 'Tasks',
 
     beforeCreate() {
-      this.$store.dispatch('getTask');
+      this.$store.dispatch('getTasks');
     }
   }
 </script>

@@ -75,7 +75,7 @@ function createTask(params) {
   });
 }
 
-function getAvailableTasks() {
+function getTasks() {
   return debug ? getMockData('task') : getRequest('readmultiple', {
     columnSet: ["*"],
     objectType: "UsrTask",
@@ -97,6 +97,6 @@ function getAvailableTasks() {
 }
 
 export {
-  getAvailableTasks,
+  getTasks,
   createTask
 }

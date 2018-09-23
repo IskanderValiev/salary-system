@@ -46,7 +46,7 @@ const actions = {
     return ApiTask.createTask(payload);
   },
   getTasks() {
-    return ApiTask.getAvailableTasks();
+    return ApiTask.getTasks();
   }
 };
 
