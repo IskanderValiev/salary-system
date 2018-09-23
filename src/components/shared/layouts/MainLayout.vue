@@ -29,14 +29,6 @@
                color="error">Выход
         </v-btn>
       </v-flex>
-      <v-flex xs12 class="text-xs-center pt-1">
-        <v-btn outline
-               small
-               class="ml-3"
-               @click="redirectToTask"
-               color="error">Task
-        </v-btn>
-      </v-flex>
     </v-navigation-drawer>
     <!-- end of aside -->
 
@@ -81,6 +73,11 @@
           title: 'Помощь',
           url: '/documentation/intro'
         },
+        {
+          icon: 'assignment',
+          title: 'Задачи',
+          url: '/tasks'
+        }
       ],
     }),
     methods: {
