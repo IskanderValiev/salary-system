@@ -28,9 +28,17 @@
 
               <v-text-field
                 v-model="description"
-                type="description"
+                type="text"
                 required
                 label="description"
+              >
+              </v-text-field>
+
+              <v-text-field
+                v-model="difficulty"
+                type="number"
+                required
+                label="difficulty"
               >
               </v-text-field>
             </div>
@@ -78,7 +86,7 @@
         })
           .then((response) => {
             if (response) {
-              this.$router.push('/');
+              this.$router.push('/tasks');
             }
           })
       },

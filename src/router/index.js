@@ -9,7 +9,8 @@ import Documentation from '@/components/documentation/Documentation'
 import DocumentationIntro from '@/components/documentation/DocumentationIntro'
 import DocumentationDetail from '@/components/documentation/DocumentationDetail'
 import store from '@/store'
-import Task from '@/components/task/Task'
+import AddTask from '@/components/task/AddTask'
+import Tasks from '@/components/task/Tasks'
 
 Vue.use(Router);
 
@@ -68,9 +69,14 @@ export default new Router({
       component: UserRegistration
     },
     {
+      path: '/tasks/add',
+      name: 'AddTask',
+      component: AddTask
+    },
+    {
       path: '/tasks',
-      name: 'Task',
-      component: Task
+      name: 'Tasks',
+      component: Tasks
     }
   ]
 })

@@ -44,6 +44,9 @@ const actions = {
   },
   createTask({commit}, payload) {
     return ApiTask.addTask(payload);
+  },
+  getTasks() {
+    return ApiTask.getAvailableTasks();
   }
 };
 

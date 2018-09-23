@@ -75,6 +75,11 @@
         },
         {
           icon: 'assignment',
+          title: 'Добавить задачу',
+          url: '/tasks/add'
+        },
+        {
+          icon: 'assignment',
           title: 'Задачи',
           url: '/tasks'
         }
